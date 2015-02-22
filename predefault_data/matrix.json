@@ -1,0 +1,180 @@
+{
+  "distributions": [
+    {"id": 1, "title": "Cloudera"},
+    {"id": 2, "title": "Hortonworks"},
+    {"id": 3, "title": "MapR"}
+  ],
+  "swot_questions": [
+    {"title": "Is the vendor's external funding-sum important for you?", "distribution_values": [
+      {"id": 1, "points": 10},
+      {"id": 2, "points": 0},
+      {"id": 3, "points": 0}
+    ]},
+    {"title": "Is it important for you to have highly optimized Intel-Chipset development?", "distribution_values": [
+      {"id": 1, "points": 10},
+      {"id": 2, "points": 0},
+      {"id": 3, "points": 0}
+    ]},
+    {"title": "Is an 100% open source implementation important to you?", "distribution_values": [
+      {"id": 1, "points": 0},
+      {"id": 2, "points": 10},
+      {"id": 3, "points": 0}
+    ]},
+    {"title": "Is it important to you to rely on a public traded company?", "distribution_values": [
+      {"id": 1, "points": 0},
+      {"id": 2, "points": 10},
+      {"id": 3, "points": 0}
+    ]},
+    {"title": "Is it important to you to have the same distribution available at Google Compute Engine or AWS?", "distribution_values": [
+      {"id": 1, "points": 0},
+      {"id": 2, "points": 0},
+      {"id": 3, "points": 10}
+    ]},
+    {"title": "Would you profit from a POSIX NFS compliant system?", "distribution_values": [
+      {"id": 1, "points": 0},
+      {"id": 2, "points": 0},
+      {"id": 3, "points": 10}
+    ]}
+  ],
+  "categories": [
+    {"title": "Performance and Scalability", "cat_weight": 20, 
+      "info_text": "Hadoop has been built for fast, scalable, and distributed computing on commodity hardware, thus each distribution has to compete against each other in this topic. Because they slightly differ I searched for comparisons and benchmarks. Benchmarks for TeraSort, MinuteSort, PageRank and the famous Word Count have been found and analyzed. Furthermore the technical differences between each distribution came into account. These differences are the technology in which important parts of the architecture are implemented, and the manner how components are orchestrated, used and connected.",
+      "sub_categories": [
+      {"title": "Key-Components written in 'close to iron' languages like C/C++", "cat_weight": 20, "distribution_values": [
+        {"id": 1, "points": 5},
+        {"id": 2, "points": 5},
+        {"id": 3, "points": 10}
+      ]},
+      {"title": "Minimal Software Layer", "cat_weight": 20, "distribution_values": [
+        {"id": 1, "points": 5},
+        {"id": 2, "points": 5},
+        {"id": 3, "points": 10}
+      ]},
+      {"title": "TB to PB Scaling", "cat_weight": 40, "distribution_values": [
+        {"id": 1, "points": 8},
+        {"id": 2, "points": 8},
+        {"id": 3, "points": 10}
+      ]},
+      {"title": "Scaling towards 100 million files", "cat_weight": 20, "distribution_values": [
+        {"id": 1, "points": 8},
+        {"id": 2, "points": 8},
+        {"id": 3, "points": 10}
+      ]}
+    ]},
+    {"title": "Availability and Dependability", "cat_weight": 20, 
+      "info_text": "The distributions differ in their implementations of disaster recovery, failover strategies, rollbacks and snapshots.",
+      "sub_categories": [
+      {"title": "Availability and Dependability", "cat_weight": 100, "distribution_values": [
+        {"id": 1, "points": 7},
+        {"id": 2, "points": 7},
+        {"id": 3, "points": 10}
+      ]}
+    ]},
+    {"title": "Manageability and Usability", "cat_weight": 5, 
+      "info_text": "The distribution has to be easily manageable to grant employees the access needed. This access should be possible in a usable manner to engage the platform acceptance.",
+      "sub_categories": [
+      {"title": "Manageability and Usability", "cat_weight": 100, "distribution_values": [
+        {"id": 1, "points": 9},
+        {"id": 2, "points": 8},
+        {"id": 3, "points": 10}
+      ]}
+    ]},
+    {"title": "Integration with Existing Systems", "cat_weight": 5, 
+      "info_text": "This category analyses how good the different distributions can access old data warehouse architectures and established IT systems.",
+      "sub_categories": [
+      {"title": "Integration with Existing Systems", "cat_weight": 100, "distribution_values": [
+        {"id": 1, "points": 9},
+        {"id": 2, "points": 9},
+        {"id": 3, "points": 10}
+      ]}
+    ]},
+    {"title": "Security", "cat_weight": 5, 
+      "info_text": "Securing Hadoop and the big data solution is indispensable for an enterprise grade distribution. Three main targets have been discovered: Comprehensive Security, Central Administration, Consistent Integration. Comprehensive Security is the security of all distribution’s components including authentication, authorization, as well as data and audit protection. Central Administration is the possibility to view and manage policies in one single place. Finally, Consistent Integration is the integration with different other identity and security management systems, for compliance with IT policies.",
+      "sub_categories": [
+      {"title": "Security", "cat_weight": 100, "distribution_values": [
+        {"id": 1, "points": 10},
+        {"id": 2, "points": 10},
+        {"id": 3, "points": 10}
+      ]}
+    ]},
+    {"title": "Data Access", "cat_weight": 5, 
+      "info_text": "Being able to access data within the data storage from other systems is impor- tant and should be considered all the time. Thus, features like NFS support and connectors for standard business applications like Microsoft SQL Server or similar are necessary for enterprises.",
+      "sub_categories": [
+      {"title": "Data Access", "cat_weight": 100, "distribution_values": [
+        {"id": 1, "points": 9},
+        {"id": 2, "points": 9},
+        {"id": 3, "points": 10}
+      ]}
+    ]},
+    {"title": "Flexibility, Customizability", "cat_weight": 5, 
+      "info_text": "Changing default behavior and customize certain aspects of the distribution may be important because not every company is equal, hence easy extendibility and changeability are creditable features.",
+      "sub_categories": [
+      {"title": "Version Flexibility", "cat_weight": 50, "distribution_values": [
+        {"id": 1, "points": 8},
+        {"id": 2, "points": 8},
+        {"id": 3, "points": 10}
+      ]},
+      {"title": "Customizability", "cat_weight": 50, "distribution_values": [
+        {"id": 1, "points": 7},
+        {"id": 2, "points": 10},
+        {"id": 3, "points": 3}
+      ]}
+    ]},
+    {"title": "Total Cost of Ownership and other additional Workforce Expertise", "cat_weight": 5, "sub_categories": [
+      {"title": "Total Cost of Ownership and other additional Workforce Expertise", "cat_weight": 100, "distribution_values": [
+        {"id": 1, "points": 7},
+        {"id": 2, "points": 10},
+        {"id": 3, "points": 7}
+      ]}
+    ]},
+    {"title": "Customer Support", "cat_weight": 8,
+      "sub_categories": [
+      {"title": "Customer Support", "cat_weight": 100, "distribution_values": [
+        {"id": 1, "points": 10},
+        {"id": 2, "points": 10},
+        {"id": 3, "points": 10}
+      ]}
+    ]},
+    {"title": "Community Support", "cat_weight": 8, 
+      "info_text": "A strong community can leverage the own success because of help from, knowledge transfer in and the possibility to find new employees in the community (the network-effect).",
+      "sub_categories": [
+      {"title": "Forum Users", "cat_weight": 10, "distribution_values": [
+        {"id": 1, "points": 5},
+        {"id": 2, "points": 5},
+        {"id": 3, "points": 10}
+      ]},
+      {"title": "Questions asked over time", "cat_weight": 90, "distribution_values": [
+        {"id": 1, "points": 10},
+        {"id": 2, "points": 9},
+        {"id": 3, "points": 2}
+      ]}
+    ]},
+    {"title": "Time to Market (Time to Installation)", "cat_weight": 4, 
+      "info_text": "Setting up and using a big data solution will never be a job, done within a minute of time. But guided and easy setup-processes encourage an enterprise to test a distribution. Thus, an easy installation and conversely a fast internal roll-out improve the acceptance of the newly introduced IT system.",
+      "sub_categories": [
+      {"title": "Time to Market (Time to Installation)", "cat_weight": 100, "distribution_values": [
+        {"id": 1, "points": 10},
+        {"id": 2, "points": 10},
+        {"id": 3, "points": 10}
+      ]}
+    ]},
+    {"title": "Upgrade, Release Cycles", "cat_weight": 1, 
+      "info_text": "The vendor’s release, update and patch cycle tells how fast the development is and whether the distribution supports so called rolling upgrades. Rolling upgrades are an important feature for cluster operating systems to upgrade a whole cluster avoiding downtime. Equally important are stable release cycles and partly backwards compatibility.",
+      "sub_categories": [
+      {"title": "Upgrade, Release Cycles", "cat_weight": 100, "distribution_values": [
+        {"id": 1, "points": 10},
+        {"id": 2, "points": 10},
+        {"id": 3, "points": 10}
+      ]}
+    ]},
+    {"title": "Vendor's future viability", "cat_weight": 9, 
+      "info_text": "Especially when dealing with some kind of vendor lock-In effect, but as well if big parts of the company’s value creation depends on the distribution’s further development and availability, the vendor’s future viability is very important to the company installing a distribution.",
+      "sub_categories": [
+      {"title": "Vendor's future viability", "cat_weight": 100, "distribution_values": [
+        {"id": 1, "points": 10},
+        {"id": 2, "points": 8},
+        {"id": 3, "points": 9}
+      ]}
+    ]}
+  ]
+}

@@ -1,0 +1,22 @@
+body {
+  background: #fff;
+}
+body .formform {
+  margin-bottom: 51px;
+}
+body .table {
+  font-size: 0.82em;
+}
+body .table .sub {
+  color: #666;
+  font-weight: 100;
+  font-size: 0.75em;
+}
+body .subgroup {
+  font-size: 0.8em;
+  background: #f2f2f2;
+  color: #666;
+}
+body .hde-swot-radio {
+  margin-right: 15px;
+}
