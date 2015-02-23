@@ -88,9 +88,7 @@ html
       nav.navbar.navbar-default.navbar-fixed-bottom          
         .container-fluid
           p.navbar-text 
-            span You have 
+            span You have used 
             span.label.label-default(ng-if="sum_all_cats() == 100") {{sum_all_cats()}}%
             span.label.label-default(ng-if="sum_all_cats() != 100", style="background-color: #ff0000") {{sum_all_cats()}}%
-            span  of 
-            span.label.label-default 100%
-            span  used.
+            span  to describe your preferences (it should be 100%) 
