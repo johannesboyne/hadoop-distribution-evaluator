@@ -1,3 +1,4 @@
+#!/bin/env node
 var fs = require('fs')
 var express = require('express')
 var jade = require('jade')
@@ -47,7 +48,7 @@ app.post('/submit', function (req, res) {
   }
 })
 
-var server = app.listen(3001, function () {
+var server = app.listen(process.env.OPENSHIFT_NODEJS_PORT || 3001, process.env.OPENSHIFT_NODEJS_IP || '', function () {
 
   var host = server.address().address
   var port = server.address().port

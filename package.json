@@ -14,5 +14,10 @@
     "jade": "^1.9.2",
     "serve-static": "^1.8.1",
     "stylus": "^0.50.0"
-  }
+  },
+  "engines": {
+    "node": ">= 0.6.0",
+    "npm": ">= 1.0.0"
+  },
+  "main": "server.js"
 }
