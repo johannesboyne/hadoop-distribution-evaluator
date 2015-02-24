@@ -9,7 +9,7 @@
   "author": "Johannes Boyne <johannes@boyne.de>",
   "license": "MIT",
   "dependencies": {
-    "basic-auth": "^1.0.0",
+    "basic-auth-connect": "^1.0.0",
     "express": "^4.11.2",
     "jade": "^1.9.2",
     "serve-static": "^1.8.1",

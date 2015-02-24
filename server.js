@@ -3,6 +3,7 @@ var express = require('express')
 var jade = require('jade')
 var stylus = require('stylus')
 var app = express()
+var basicAuth = require('basic-auth-connect')
 
 app.set('view engine', 'jade');
 
@@ -25,6 +26,7 @@ var options = {
 app.use(express.static('public', options))
 app.use(express.static('bower_components', options))
 app.use(express.static('predefault_data', options))
+app.use(basicAuth('username', 'password'))
 
 app.get('/', function (req, res) {
   res.render('index', { title: 'DBIS | Hadoop Distribution Evaluator', message: 'Hello there!', data: require('./predefault_data/matrix.json')})
