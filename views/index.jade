@@ -1,94 +1,107 @@
-html
-  head
-    title!= title
-    meta( name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
-    meta(name="apple-mobile-web-app-capable", content="yes")
-    meta(name="apple-mobile-web-app-status-bar-style", content="black")
-    link(rel="apple-touch-icon", href="/app_icon.png")
-    link(rel="apple-touch-startup-image", href="/app_logo_fullcolor.png")
-    
-    link(rel='stylesheet', href='/bootstrap/dist/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/main.css')
-    script(src='/jquery/dist/jquery.min.js')
-    script(src='/bootstrap/dist/js/bootstrap.min.js')
-    script(src='/angular/angular.min.js')
-    script(src='/app.js')  
-  body(ng-app="DBISEvaluation")
-    header.navbar.navbar-static-top.navbar-inverse
-      .container-fluid
-        .navbar-header
-          img(src="/app_icon.png", height="45px", style="padding: 5px 5px 0 5px; float: left;")
-          a.navbar-brand(href="#") DBIS | Hadoop Dist. Evaluator
-    .container.formform(ng-controller="FormController")
-      .row
-        .col-md-12
-          img.img-responsive(src="/app_logo_fullcolor.png")
-        .col-md-12
-          p Big Data is one of today’s most respected business trends. Hadoop, a framework providing scalable, distributed computing on commodity hardware, has become the de facto standard for IT. Thus many companies are planning to implement Hadoop in their IT landscape. A whole industry developed around it, providing services, improvements and easier maintenance for the Hadoop framework. However, it is difficult to decide which preconfigured Hadoop distribution like Cloudera, Hortonworks or MapR should be chosen.
-          p You can use this form as starting point, it weights different decision factors and recommends a distribution based on the applied category weights.
+include header
 
-      hr    
-      .row
-        .col-md-12
-          h2 Quantitative Ranking Questions
-          form
-            .form-group.main(ng-repeat='q in data.categories')
-              label {{q.title}} 
-              .input-group
-                input.form-control(ng-model="q.cat_weight", type="number", id="{{q.title}}", min=0, max=100, ng-keyup="percents()")
-                span.input-group-addon %
-              span.help-block {{q.info_text}}
+.container.formform(ng-controller="FormController")
+  .row
+    .col-md-12
+      img.img-responsive(src="/app_logo_fullcolor.png")
+    .col-md-12
+      p Big Data is one of today’s most respected business trends. Hadoop, a framework providing scalable, distributed computing on commodity hardware, has become the de facto standard for IT. Thus many companies are planning to implement Hadoop in their IT landscape. A whole industry developed around it, providing services, improvements and easier maintenance for the Hadoop framework. However, it is difficult to decide which preconfigured Hadoop distribution like Cloudera, Hortonworks or MapR should be chosen.
+      p You can use this form as starting point, it weights different decision factors and recommends a distribution based on the applied category weights.
 
-              span.help-block(ng-if="q.sub_categories.length > 1") Sum of all subfields has to be 100%, you've got {{q.subcount}}%
-              .subgroup(ng-if="q.sub_categories.length > 1" ng-repeat='sq in q.sub_categories', ng-class="{true: 'has-warning'}[calc_category(q) != q.cat_weight || check_subs(q)]")
-                label {{sq.title}}
-                  
-                .input-group
-                  span.input-group-addon %
-                  input.form-control(ng-model="sq.cat_weight", type="number", id="{{sq.title}}", min=0, max=100, ng-keyup="percents()")
-                  span.input-group-addon {{sq.cat_weight}}% / {{calc_category(q)}}% = {{calc_weight(sq, q)}}%
+  hr    
+  .row
+    .col-md-12
+      h2 Quantitative Ranking Questions
+      form
+        .form-group.main.col-md-4(ng-repeat='q in data.categories')
+          label {{q.title}} 
+          .input-group
+            input.form-control(ng-model="q.cat_weight", type="number", id="{{q.title}}", min=0, max=100, ng-keyup="percents()")
+            span.input-group-addon % 
+              span.glyphicon.glyphicon-question-sign(title="{{q.info_text}}")
+          //span.help-block {{q.info_text}}
 
-      .row
-        .col-md-12
-          .col-xs-4(ng-repeat='d in data.distributions')
-            h2 {{d.title}}
-            span.badge {{cat_score(d, $index)}}
+          span.help-block(ng-if="q.sub_categories.length > 1") Sum of all subfields has to be 100%, you've got {{sum_all_subs(q)}}%
+          .subgroup(ng-if="q.sub_categories.length > 1" ng-repeat='sq in q.sub_categories', ng-class="{true: 'has-warning'}[calc_category(q) != q.cat_weight || check_subs(q)]")
+            label {{sq.title}}
+              
+            .input-group
+              span.input-group-addon %
+              input.form-control(ng-model="sq.cat_weight", type="number", id="{{sq.title}}", min=0, max=100, ng-keyup="percents()")
+              span.input-group-addon {{sq.cat_weight}}% / {{calc_category(q)}}% = {{calc_weight(sq, q)}}% 
+                span.glyphicon.glyphicon-question-sign(title="{{sq.info_text}}")
 
-      hr
-      .row
-        .col-md-12
-          h2 Qualitative Ranking Questions
-          form
-            .form-group.col-md-4(ng-repeat='s in data.swot_questions')
-              div
-                label {{s.title}}
-              div
-                label.hde-swot-radio
-                  input.hde-swot-radio(data-ng-model="s.value", data-ng-value="true", type="radio", name="optionsRadios_{{s.title}}", id="{{s.title}}_yes", value="yes")
-                  span Yes
-                label.hde-swot-radio
-                  input.hde-swot-radio(data-ng-model="s.value", data-ng-value="false", type="radio", name="optionsRadios_{{s.title}}", id="{{s.title}}_no", value="no")
-                  span No
+  .row
+    .col-md-12
+      .col-xs-4(ng-repeat='d in data.distributions')
+        h2 {{d.title}}
+        span.badge {{cat_score(d, $index)}}
 
-      .row
-        .col-md-12
-          .col-xs-4(ng-repeat='d in data.distributions')
-            h2 {{d.title}}
-            span.badge {{swot_score(d, $index)}}
+  hr
+  .row
+    .col-md-12
+      h2 Qualitative Ranking Questions
+      form
+        .form-group.col-md-4(ng-repeat='s in data.swot_questions')
+          div
+            label {{s.title}}
+          div
+            label.hde-swot-radio
+              input.hde-swot-radio(data-ng-model="s.value", data-ng-value="true", type="radio", name="optionsRadios_{{s.title}}", id="{{s.title}}_yes", value="yes")
+              span Yes
+            label.hde-swot-radio
+              input.hde-swot-radio(data-ng-model="s.value", data-ng-value="false", type="radio", name="optionsRadios_{{s.title}}", id="{{s.title}}_no", value="no")
+              span No
 
-      hr
-      .row
-        .col-md-4
-          form
-            .form-group
-              label Submit your result anonymously
-              .input-group
-                button(type="submit", class="btn btn-default", ng-click="submit()") Submit
+  .row
+    .col-md-12
+      .col-xs-4(ng-repeat='d in data.distributions')
+        h2 {{d.title}}
+        span.badge {{swot_score(d, $index)}}
+        
+  hr
 
-      nav.navbar.navbar-default.navbar-fixed-bottom          
-        .container-fluid
-          p.navbar-text 
-            span You have used 
-            span.label.label-default(ng-if="sum_all_cats() == 100") {{sum_all_cats()}}%
-            span.label.label-default(ng-if="sum_all_cats() != 100", style="background-color: #ff0000") {{sum_all_cats()}}%
-            span  to describe your preferences (it should be 100%) 
+  .row
+    .col-md-12
+      table.table
+        thead
+          tr
+            th Vendor
+            th
+              span Decision Matrix Score 
+              span.glyphicon.glyphicon-question-sign(title="Maximum 10")
+              
+            th 
+              span SWOT Analysis Score 
+              span.glyphicon.glyphicon-question-sign(title="Maximum 20")
+              
+            th URL
+        tbody
+          tr(ng-repeat='d in data.distributions')
+            th
+              img.vendor_logo(src="/{{d.logo}}.png")
+            th {{cat_score(d, $index)}}
+            th {{swot_score(d, $index)}}
+            th
+              a(href="{{d.url}}") {{d.url}}
+  hr
+  .row
+    .col-md-6
+      form
+        .form-group
+          label Submit your result anonymously
+          p.
+            Submitting your result saves it for later research, no personal 
+            data is being stored and no monetarization is going to be made 
+            through your submission, but you will support future research.
+          .input-group
+            button(type="submit", class="btn btn-default", ng-click="submit()") Submit Anonymously
+
+  nav.navbar.navbar-default.navbar-fixed-bottom          
+    .container-fluid
+      p.navbar-text 
+        span You have used 
+        span.label.label-default(ng-if="sum_all_cats() == 100") {{sum_all_cats()}}%
+        span.label.label-default(ng-if="sum_all_cats() != 100", style="background-color: #ff0000") {{sum_all_cats()}}%
+        span  to describe your preferences (it should be 100%) 
+   

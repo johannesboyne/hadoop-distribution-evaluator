@@ -1,0 +1,24 @@
+html
+  head
+    title!= title
+    meta( name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+    meta(name="apple-mobile-web-app-capable", content="yes")
+    meta(name="apple-mobile-web-app-status-bar-style", content="black")
+    link(rel="apple-touch-icon", href="/app_icon.png")
+    link(rel="apple-touch-startup-image", href="/app_logo_fullcolor.png")
+    
+    link(rel='stylesheet', href='/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/main.css')
+    script(src='/jquery/dist/jquery.min.js')
+    script(src='/bootstrap/dist/js/bootstrap.min.js')
+    script(src='/angular/angular.min.js')
+    script(src='/app.js')  
+  body(ng-app="DBISEvaluation")
+    header.navbar.navbar-static-top.navbar-inverse
+      .container-fluid
+        .navbar-header
+          img(src="/app_icon.png", height="45px", style="padding: 5px 5px 0 5px; float: left;")
+          a.navbar-brand(href="/") DBIS | Hadoop Dist. Evaluator
+        ul.nav.navbar-nav
+          li
+            a(href="/about") About

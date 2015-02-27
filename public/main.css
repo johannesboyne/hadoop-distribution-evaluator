@@ -13,10 +13,18 @@ body .table .sub {
   font-size: 0.75em;
 }
 body .subgroup {
+  margin: 10;
+  border: 1px solid #f0f0f0;
   font-size: 0.8em;
   background: #f2f2f2;
   color: #666;
 }
 body .hde-swot-radio {
   margin-right: 15px;
+}
+body .glyphicon-question-sign {
+  cursor: help;
+}
+body .vendor_logo {
+  width: 155px;
 }

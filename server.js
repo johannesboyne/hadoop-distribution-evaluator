@@ -33,6 +33,11 @@ app.get('/', function (req, res) {
   res.render('index', { title: 'DBIS | Hadoop Distribution Evaluator', message: 'Hello there!', data: require('./predefault_data/matrix.json')})
 })
 
+
+app.get('/about', function (req, res) {
+  res.render('about', { title: 'DBIS | Hadoop Distribution Evaluator - About'})
+})
+
 app.get('/matrix_data.json', function (req, res) {
   res.json(require('./predefault_data/matrix.json'))
 })

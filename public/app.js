@@ -1,10 +1,12 @@
 angular.module('DBISEvaluation', [])
   .controller('FormController', ['$scope', '$http', function($scope, $http) {
+    $scope.score_color_classes = ['success', 'warning', 'danger']
     $scope.count = 0
     $scope.data = null
     $http.get('matrix_data.json').then(function (res) {
       $scope.data = res.data
     })
+
     $scope.percents = function() {
       $scope.count = 0;
       angular.forEach($scope.questions, function(q) {
