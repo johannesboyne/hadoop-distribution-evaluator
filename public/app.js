@@ -33,7 +33,9 @@ angular.module('DBISEvaluation', [])
     $scope.calc_category = function (val) {
       if (val.sub_categories.length <= 1)
         return val.cat_weight
-      return Math.round((val.sub_categories.map(function (sc) { return sc.cat_weight*val.cat_weight }).reduce(function (prev, cur) { return prev + cur; }))/100)
+      return Math.round((val.sub_categories
+                         .map(function (sc) { return sc.cat_weight*val.cat_weight })
+                         .reduce(function (prev, cur) { return prev + cur; }))/100)
     }
 
     $scope.calc_sub_category = function (nindex, sc, val) {
@@ -88,12 +90,31 @@ angular.module('DBISEvaluation', [])
       return count
     }
 
-    $scope.submit = function () {
+    function save_to_server (fn) {
+      $scope.data.distributions = $scope.data.distributions.map(function (d, i) {
+        d.cat_score = $scope.cat_score(d,i)
+        d.swot_score = $scope.swot_score(d,i)
+        return d
+      })
       $http.post('submit', $scope.data).then(function (res) {
         if (res.data.info == 'success') {
-          return alert('Successfully saved, thanks a lot!')
+          fn(res.data)
+        } else {
+          alert('an error occured')
         }
-        alert('Sorry, the request terminated...')
+      })
+    }
+
+    $scope.submit = function () {
+      save_to_server(function () {
+        $scope.successfully_saved = true
+      })
+    }
+
+    $scope.get_pdf = function () {
+      save_to_server(function (data) {
+        $scope.pdf_link = data.link
+        window.location.href = data.link
       })
     }
 }])

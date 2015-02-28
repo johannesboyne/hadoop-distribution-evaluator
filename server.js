@@ -3,8 +3,10 @@ var fs = require('fs')
 var express = require('express')
 var jade = require('jade')
 var stylus = require('stylus')
-var app = express()
+var jadepdf = require('jade-pdf-redline')
 var basicAuth = require('basic-auth-connect')
+var through = require('through')
+var app = express()
 
 app.set('view engine', 'jade');
 
@@ -43,14 +45,30 @@ app.get('/matrix_data.json', function (req, res) {
 })
 
 app.post('/submit', function (req, res) {
+  var json_filename = Date().toString().replace(/\D/g, '')
   try {
-    req.pipe(fs.createWriteStream('./'+Date().toString().replace(/\D/g, '')+'.json'))
+    req.pipe(fs.createWriteStream('./'+json_filename+'.json'))
     req.on('end', function () {
-      res.json({info: "success"})
+      res.json({info: "success", "link": "/pdf/"+json_filename})
     })
   } catch (e) {
     res.json({info: "error"})
   }
+})
+
+app.get('/pdf/:pdfid', function (req, res) {
+  fs.createReadStream('./views/pdf.jade')
+  .pipe(jadepdf({
+    locals: {title: 'DBIS | Hadoop Distribution Evaluator', data: JSON.parse(fs.readFileSync('./'+req.params.pdfid+'.json'))}
+  }))
+  .pipe(res)
+})
+
+app.post('/submit', function (req, res) {
+  req.on('end', function () {
+    res.json({pdf: "success"})
+  })
+  
 })
 
 var server = app.listen(process.env.OPENSHIFT_NODEJS_PORT || 3001, process.env.OPENSHIFT_NODEJS_IP || '', function () {
