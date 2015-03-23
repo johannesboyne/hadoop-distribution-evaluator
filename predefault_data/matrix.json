@@ -38,7 +38,7 @@
   ],
   "categories": [
     {"title": "Performance and Scalability", "cat_weight": 20, 
-      "info_text": "Hadoop has been built for fast, scalable, and distributed computing on commodity hardware, thus each distribution has to compete against each other in this topic. Because they slightly differ I searched for comparisons and benchmarks. Benchmarks for TeraSort, MinuteSort, PageRank and the famous Word Count have been found and analyzed. Furthermore the technical differences between each distribution came into account. These differences are the technology in which important parts of the architecture are implemented, and the manner how components are orchestrated, used and connected.",
+      "info_text": "Hadoop has been built for fast, scalable, and distributed computing on commodity hardware, thus each distribution has to compete against each other in this topic. Because they slightly differ I searched for comparisons and benchmarks. Benchmarks like TeraSort and MinuteSort have been found and analyzed {PDF: Sort_Benchmark_Home_Page_2015-03-22}. Furthermore the technical differences between each distribution came into account. These differences are the technology in which important parts of the architecture are implemented, and the manner how components are orchestrated, used and connected.",
       "sub_categories": [
       {"title": "Key-Components written in 'close to iron' languages like C/C++", "cat_weight": 20, "info_text": "", "distribution_values": [
         {"id": 1, "points": 5},
@@ -76,7 +76,7 @@
       ]}
     ]},
     {"title": "Availability and Dependability", "cat_weight": 10, 
-      "info_text": "The distributions differ in their implementations of disaster recovery, failover strategies, rollbacks and snapshots.",
+      "info_text": "Applying the data lake approach with an Hadoop distribution makes the data platform to a component in your enterprise architecture with the highest ratio of required availability and dependability. Thus a failure and major outage is not allowed to happen. Again the distributions differ from each other because of their implementations of disaster recovery, failover strategies, rollbacks and snapshots, see Chapter {PDF: titel:ca-ds}.",
       "sub_categories": [
       {"title": "Availability and Dependability", "cat_weight": 100, "distribution_values": [
         {"id": 1, "points": 7},
@@ -85,7 +85,7 @@
       ]}
     ]},
     {"title": "Manageability and Usability", "cat_weight": 5, 
-      "info_text": "The distribution has to be easily manageable to grant employees the access needed. This access should be possible in a usable manner to engage the platform acceptance.",
+      "info_text": "Previously discussed, dumb data does not generated value. The distribution has to be easily manageable to grant employees the access needed. This access should be possible in a usable way to engage the platform acceptance. This has been previously discussed in {PDF: title:entry-barriers} referencing the research of Prof. Marchand, and Prof. Peppard {PDF: marchand:peppard:2013}, as well as the Shah et al. research {PDF: shah:horne:capella:2012}.",
       "sub_categories": [
       {"title": "Manageability and Usability", "cat_weight": 100, "distribution_values": [
         {"id": 1, "points": 9},
@@ -94,7 +94,7 @@
       ]}
     ]},
     {"title": "Integration with Existing Systems", "cat_weight": 5, 
-      "info_text": "This category analyses how good the different distributions can access old data warehouse architectures and established IT systems.",
+      "info_text": "In previous chapters I have sliced a difference between old IT architectures like the Data Warehouse and the new big data solutions, regarding data storage, like the Data Lake. Inmon, as quoted in {PDF: title:rise-big-data}, has the opinion, that reliable data sources are only possible by data warehouses. And he is right, if one looks at single data sources inside the data lake. But loading and transforming the incoming data through the Data Lake into EDW etc. provides cost reduction as stated before. This chapter analyses how good the different distributions can access old data warehouse architectures and established IT systems to enable such combinations of old and new systems.",
       "sub_categories": [
       {"title": "Integration with Existing Systems", "cat_weight": 100, "distribution_values": [
         {"id": 1, "points": 9},
@@ -103,7 +103,7 @@
       ]}
     ]},
     {"title": "Security", "cat_weight": 5, 
-      "info_text": "Securing Hadoop and the big data solution is indispensable for an enterprise grade distribution. Three main targets have been discovered: Comprehensive Security, Central Administration, Consistent Integration. Comprehensive Security is the security of all distribution’s components including authentication, authorization, as well as data and audit protection. Central Administration is the possibility to view and manage policies in one single place. Finally, Consistent Integration is the integration with different other identity and security management systems, for compliance with IT policies.",
+      "info_text": "Securing Hadoop is indispensable for an enterprise grade distribution. Three main targets have been discovered: Comprehensive Security, Central Administration, and Consistent Integration. Comprehensive Security is the security of all distribution's components including authentication, authorization, as well as data and audit protection. Central Administration is the possibility to view and manage policies in one single place. Finally, Consistent Integration is the integration with different other identity and security management systems, for compliance with IT policies {PDF: Comprehensive_and_Coordinated_Security_for_Enterprise_Hadoop_2015-02-10}. Another important aspect of IT security are the provided security guidelines and security best practices for each distribution.",
       "sub_categories": [
       {"title": "Security", "cat_weight": 100, "distribution_values": [
         {"id": 1, "points": 10},
@@ -112,7 +112,7 @@
       ]}
     ]},
     {"title": "Data Access", "cat_weight": 5, 
-      "info_text": "Being able to access data within the data storage from other systems is impor- tant and should be considered all the time. Thus, features like NFS support and connectors for standard business applications like Microsoft SQL Server or similar are necessary for enterprises.",
+      "info_text": "Being able to access data within the data storage from other systems is important and should be considered all the time, because this is the core advantage of the in Chapter {PDF: title:understanding-the-data-lake} explained data lake. Thus, features like NFS support and connectors for standard business applications like Microsoft SQL Server or similar are necessary for enterprises.",
       "sub_categories": [
       {"title": "Data Access", "cat_weight": 100, "distribution_values": [
         {"id": 1, "points": 9},
@@ -121,7 +121,9 @@
       ]}
     ]},
     
-    {"title": "TCO and other additional Workforce Expertise", "cat_weight": 5, "sub_categories": [
+    {"title": "TCO and other additional Workforce Expertise", "cat_weight": 5, 
+      "info_text": "Many projects do have a tight financial plan, even if research done by Standish shows {PDF: chaos2001standish} and the work of the PMI underlines it, that many projects significantly overrun their cost estimates. Nevertheless, every project manager aims towards a balanced budget thus it is important to analyze differences in the TCO of each distribution. TCO can either increase by hidden licenses costs or by additional required workforce experience.",
+      "sub_categories": [
       {"title": "TCO and other additional Workforce Expertise", "cat_weight": 100, "distribution_values": [
         {"id": 1, "points": 7},
         {"id": 2, "points": 10},
@@ -129,6 +131,7 @@
       ]}
     ]},
     {"title": "Documentation", "cat_weight": 5,
+      "info_text": "The documentations of each distribution have been analyzed regarding technical accuracy, consistency, task orientation, completeness, clarity, concreteness, style, organization, and visual effectiveness. These attributes have been taken from the research of Dautovich {PDF: Dautovic:2011:AAS:2190078.2190170} and the NASA Software Documentation Standard (STD-2100-91) {PDF: NASA_2015-02-06}.",
       "sub_categories": [
       {"title": "Documentation", "cat_weight": 100, "distribution_values": [
         {"id": 1, "points": 5},
@@ -137,6 +140,7 @@
       ]}
     ]},
     {"title": "Risk of Vendor Lock-In-Effect", "cat_weight": 5,
+      "info_text": "A problem can occur if the chosen distribution has got a specific file-format and data-accessibility API, bound to this specific distribution and therefore a switch towards another distribution would require a complete data and service migration. Such a vendor lock in leads to an heavy dependence on the big data distribution vendor. This vendor lock-in problem and the occurring switching costs and network effects have been researched by Farrell et al. {PDF: Farrell20071967}, this research shows on the one hand the problems but on the other the opportunities because of the network effect: ``one agent's adoption of a good benefits other adopters of the good and increases others' incentives to adopt it`` {PDF: Farrell20071967}. This partly connects with the community size and support of the category Community Support.",
       "sub_categories": [
       {"title": "Risk of Vendor Lock-In-Effect", "cat_weight": 100, "distribution_values": [
         {"id": 1, "points": 10},
@@ -145,6 +149,7 @@
       ]}
     ]},
     {"title": "Customer Support", "cat_weight": 8,
+      "info_text": "In this area I will highlight the differences between the different vendor's customer support plans. The benefits of commercial support for such distribution is clear: a faster setup, knowledge gathering through training and thus a faster project success.",
       "sub_categories": [
       {"title": "Customer Support", "cat_weight": 100, "distribution_values": [
         {"id": 1, "points": 10},
@@ -153,7 +158,7 @@
       ]}
     ]},
     {"title": "Community Support", "cat_weight": 8, 
-      "info_text": "A strong community can leverage the own success because of help from, knowledge transfer in and the possibility to find new employees in the community (the network-effect).",
+      "info_text": "A strong community can leverage the own success because of help from and knowledge transfer in and the possibility to find new employees in the community (the network-effect). Measurements about a community size and it's value are more a qualitative than a quantitative exploration, because no data is public available and no information about inactive community members are published. Nevertheless, the different vendor communities have been analyzed regarding users in the support forums and the amount of questions asked inside this forums.",
       "sub_categories": [
       {"title": "Forum Users", "cat_weight": 10, "distribution_values": [
         {"id": 1, "points": 5},

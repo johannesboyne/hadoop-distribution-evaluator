@@ -16,6 +16,7 @@ app.use(stylus.middleware({
   debug: true,
   force: true
 }))
+
 var options = {
   dotfiles: 'ignore',
   etag: false,
@@ -29,7 +30,10 @@ var options = {
 app.use(express.static('public', options))
 app.use(express.static('bower_components', options))
 app.use(express.static('predefault_data', options))
-app.use(basicAuth('username', 'password'))
+
+// Basic Auth
+if (process.env.NODE_ENV === "staging")
+  app.use(basicAuth(String(process.env.BA_USER), String(process.env.BA_PASS)))
 
 app.get('/', function (req, res) {
   res.render('index', { title: 'DBIS | Hadoop Distribution Evaluator', message: 'Hello there!', data: require('./predefault_data/matrix.json')})
@@ -77,5 +81,4 @@ var server = app.listen(process.env.OPENSHIFT_NODEJS_PORT || 3001, process.env.O
   var port = server.address().port
 
   console.log('Example app listening at http://%s:%s', host, port)
-
 })
